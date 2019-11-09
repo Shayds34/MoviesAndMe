@@ -84,6 +84,7 @@ class Search extends React.Component {
           loadFilms={this._loadFilms}
           page={this.page}
           totalPages={this.totalPages}
+          favoriteList={false} // False, we're not in favorite view, so search more film when endReached.
         />
         {this._displayLoading()}
       </View>

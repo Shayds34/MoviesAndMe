@@ -11,11 +11,20 @@ class FilmDetail extends React.Component {
     super(props)
     this.state = {
       film:  undefined,
-      isLoading: true
+      isLoading: false
     }
   }
 
   componentDidMount(){
+    const favoriFilmIndex = this.props.favoritesFilm.findIndex(item => item.id === this.props.navigation.state.params.idFilm)
+    if (favoriFilmIndex !== -1) {
+      this.setState({
+        film: this.props.favoritesFilm[favoriFilmIndex]
+      })
+      return
+    }
+
+    this.setState({ isLoading: true})
     getFilmDetailFromApi(this.props.navigation.state.params.idFilm).then(data => {
       this.setState({
         film: data,
