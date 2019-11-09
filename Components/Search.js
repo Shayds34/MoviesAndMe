@@ -68,7 +68,6 @@ class Search extends React.Component {
   }
 
   render() {
-    console.log("API_KEY: " + process.env.REACT_APP_TMDB_API_KEY)
     return (
       <View style={styles.main_container}>
         <TextInput
