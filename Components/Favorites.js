@@ -4,6 +4,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 class Favorites extends React.Component {
+
   render() {
     return (
       <Text>Mes Favoris</Text>
@@ -11,8 +12,8 @@ class Favorites extends React.Component {
   }
 }
 
-const styles = StyleSheet.createAppContainer({
-  
+const styles = StyleSheet.create({
+
 })
 
 export default Favorites

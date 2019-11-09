@@ -1,5 +1,9 @@
 const API_TOKEN = "8296fab1d2c3958b20c2c41817d14b2b"
 
+// TODO
+// API_TOKEN has to be private: result is "undefined"
+// const API_TOKEN = process.env.REACT_APP_TMDB_API_KEY
+
 export function getFilmsFromApiWithSearchedText(text, page){
   const url = 'https://api.themoviedb.org/3/search/movie?api_key=' + API_TOKEN + '&language=fr&query=' + text + '&page=' + page
   return fetch(url)
