@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import { StyleSheet, Image } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
@@ -19,13 +19,26 @@ const SearchStackNavigator = createStackNavigator({
     }
   })
 
-  const MoviesTabNavigator = createBottomTabNavigator(
-    {
+  const MoviesTabNavigator = createBottomTabNavigator({
     Search:{
-      screen: SearchStackNavigator
+      screen: SearchStackNavigator,
+      navigationOptions: {
+        tabBarIcon: () => {
+          return <Image
+            source={require('../Images/ic_search.png')}
+            style={styles.icon}/>
+        }
+      }
     },
     Favorites: {
-      screen: Favorites
+      screen: Favorites,
+      navigationOptions: {
+        tabBarIcon: () => {
+          return <Image
+            source={require('../Images/ic_favorite.png')}
+            style={styles.icon}/>
+        }
+      }
     }
   },
   {
@@ -35,8 +48,7 @@ const SearchStackNavigator = createStackNavigator({
       showLabel: false,
       showIcon: true
     }
-  }
-)
+  })
 
 const styles = StyleSheet.create({
   icon: {
