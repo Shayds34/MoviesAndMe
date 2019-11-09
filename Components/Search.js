@@ -18,7 +18,12 @@ class Search extends React.Component {
       films: [],
       isLoading: false
     }
+
+    // Bind
+    this._loadFilms = this._loadFilms.bind(this)
   }
+
+
 
   _loadFilms() {
     if (this.searchedText.length > 0) {
