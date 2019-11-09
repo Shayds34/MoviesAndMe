@@ -99,7 +99,7 @@ class FilmDetail extends React.Component {
       return (
         <ScrollView style={styles.scrollview_container}>
           <Image
-            style={styles.image}
+            style={styles.film_image}
             source={{uri: getImageFromApi(film.backdrop_path)}}
           />
           <Text style={styles.title_text}>{film.title}</Text>
@@ -117,7 +117,7 @@ class FilmDetail extends React.Component {
               return genre.name;
             }).join(" / ")}
           </Text>
-          <Text style={styles.default_text}>Companie(s) : {film.production_companies.map(function(company){
+          <Text style={styles.default_text}>Compagnie(s) : {film.production_companies.map(function(company){
               return company.name;
             }).join(" / ")}
           </Text>
@@ -136,7 +136,7 @@ class FilmDetail extends React.Component {
     if (film != undefined && Platform.OS === 'android') {
       return (
         <TouchableOpacity
-          style={styles.share_touchable_floatingactionbutton}
+          style={styles.share_touchable_floating_action_button}
           onPress={() => this._shareFilm()}>
           <Image
             style={styles.share_image}
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   scrollview_container: {
     flex: 1
   },
-  image: {
+  film_image: {
     height: 169,
     margin: 5
   },
@@ -189,26 +189,26 @@ const styles = StyleSheet.create({
     color: '#000000',
     textAlign: 'center'
   },
-  favorite_container: {
-    alignItems: 'center',
-  },
   description_text: {
     fontStyle: 'italic',
     color: '#666666',
     margin: 5,
     marginBottom: 15
   },
-  default_text: {
+  default_text: {
     marginLeft: 5,
     marginRight: 5,
     marginTop: 5,
   },
-  favorite_image:{
+  favorite_container: {
+    alignItems: 'center'
+  },
+  favorite_image: {
     flex: 1,
     width: null,
     height: null
   },
-  share_touchable_floatingactionbutton: {
+  share_touchable_floating_action_button: {
     position: 'absolute',
     width: 60,
     height: 60,
@@ -220,11 +220,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   share_touchable_headerrightbutton: {
-    marginRight: 8
+
   },
   share_image: {
     width: 30,
-    height: 30
+    height: 30,
   }
 })
 
@@ -233,5 +233,4 @@ const mapStateToProps = (state) => {
     favoritesFilm: state.favoritesFilm
   }
 }
-
 export default connect(mapStateToProps)(FilmDetail)
