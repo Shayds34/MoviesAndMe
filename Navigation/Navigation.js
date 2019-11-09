@@ -32,7 +32,7 @@ const FavoriteStackNavigator = createStackNavigator({
 })
 
   const MoviesTabNavigator = createBottomTabNavigator({
-    Search:{
+    Search: {
       screen: SearchStackNavigator,
       navigationOptions: {
         tabBarIcon: () => {
